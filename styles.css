@@ -1,0 +1,331 @@
+:root{
+    --primary-color: hsl(209, 59%, 80%);
+    --secondary-color: hsl(211, 93%, 5%);
+    --text-color: var(--primary-color);
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 50px;
+    box-sizing: border-box;
+    background-color: var(--secondary-color);
+    z-index: 1000;
+    border-bottom: 3px solid var(--primary-color);  
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* ---- NAV SECTION STYLING ---- */
+nav {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 20vw;
+}
+
+nav ul li a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif; 
+    padding: 10px;
+    transition: transform 0.3s ease;
+} 
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--primary-color);
+    
+    /* --- This is the key for the sliding animation --- */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+nav ul li a:hover { 
+    transform: scale(1.1);
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+body{
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding-top: 30px;
+    counter-reset: item;
+}
+
+h1{
+    color: var(--primary-color);
+    font-size: 15vh;
+    text-align: center;
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(15vh);
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/* ---- HERO SECTION STYLING ---- */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers the content */
+    align-items: center; /* Horizontally centers the content */
+    min-height: 100vh; /* Ensures it takes up the full screen height */
+    width: 100%;
+    position: relative; /* Crucial for positioning child elements */
+    overflow: hidden; /* Prevents elements from spilling out */
+}
+
+.side-line {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--primary-color);
+    z-index: 20;
+}
+.side-line.left { left: 120px; }
+.side-line.right { right: 120px; }
+
+.hero-top-row {
+    display: absolute   ;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px; /* Adjust this to control spacing */
+    padding: 0 50px;
+    position: absolute;
+    top: 100px; /* Position from the top */
+    left: 48%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.hero-top-row h1 {
+    font-size: 8vw; /* Responsive font size based on viewport width */
+    font-weight: 700;
+    color: var(--text-color);
+    margin-top: 10px;
+    line-height: 1;
+}
+
+.hero-top-row h1 span {
+    color: var(--accent-color);
+}
+
+.dot-matrix {
+
+}
+
+.hero-image-container {
+    position: absolute;
+    top: 55%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    width: clamp(280px, 30vw, 420px);
+    z-index: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--accent-color);
+    box-shadow: inset 0 0 80px 40px var(--secondary-color);
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    filter: grayscale(1) contrast(1.1);
+    mix-blend-mode: luminosity; 
+    opacity: 0.8; 
+}
+
+.hero-description {
+    position: absolute;
+    bottom: 160px;
+    left: 48%;
+    transform: translateX(-50%);
+    max-width: 650px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-color);
+    opacity: 0.8;
+    z-index: 10;
+}
+
+/* SKIILS SLIDER */
+.skills-cta-button {
+    position: absolute;
+    bottom: 80px; 
+    left: 48%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.slider-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.slider-track {
+    position: relative;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 450px;
+}
+
+.slider-track::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-color);
+    opacity: 0.6;
+}
+
+.slider-node {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-color);
+    z-index: 1; 
+}
+
+/* "SKILLS" text */
+.slider-label {
+    color: var(--primary-color);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.scroll-down-arrow {
+    width: 15px;
+    height: 15px;
+    border: solid var(--primary-color);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    animation: bounce 2.5s infinite; 
+}
+
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Keyframe bouncing effect */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) rotate(45deg);
+    }
+    40% {
+        transform: translateY(10px) rotate(45deg);
+    }
+    60% {
+        transform: translateY(5px) rotate(45deg);
+    }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        justify-content: center;
+    }
+
+    body {
+        padding-top: 70px;
+    }
+
+    .hero {
+        min-height: calc(100vh - 70px);
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+    }
+
+    .side-line {
+        display: none;
+    }
+
+    .hero-top-row {
+        flex-direction: column;
+        gap: 20px;
+        top: 80px;
+    }
+
+    .hero-top-row h1 {
+        font-size: 15vw;
+    }
+
+    .hero-image-container {
+        width: 300px;
+        opacity: 0.5;
+    }
+
+    .hero-description {
+        bottom: 150px;
+        padding: 0 20px;
+        font-size: 13px;
+    }
+
+    .skills-cta-button {
+        bottom: 20px;
+    }
+}
