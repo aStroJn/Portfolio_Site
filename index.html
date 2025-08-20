@@ -62,23 +62,27 @@
             </div>
 
             <div class="carousel-container">
-                <div class="skills-grid">
-                <div class="skill-card">HTML</div>
-                <div class="skill-card">CSS</div>
-                <div class="skill-card">JavaScript</div>
-                <div class="skill-card">React</div>
-                <div class="skill-card">Node.js</div>
-                <!-- Add more skill cards as needed -->
-            </div>
-                
+                <div class="carousel-track">
+                    <!-- We've renamed 'skill-card' to 'carousel-card' for consistency -->
+                    <div class="carousel-card">HTML</div>
+                    <div class="carousel-card">CSS</div>
+                    <div class="carousel-card">JavaScript</div>
+                    <div class="carousel-card">React</div>
+                    <div class="carousel-card">Node.js</div>
+
+                    <!-- Duplicate for seamless loop -->
+                    <div class="carousel-card">HTML</div>
+                    <div class="carousel-card">CSS</div>
+                    <div class="carousel-card">JavaScript</div>
+                    <div class="carousel-card">React</div>
+                    <div class="carousel-card">Node.js</div>
+                </div>
+            
                 <!-- The gradient overlays for the fade effect --> 
                 <div class="carousel-fade left"></div> 
-                <div class="carousel-fade right"></div> 
-                
-                <!-- Navigation buttons --> 
-                <button class="carousel-button prev">&larr;</button>
-                <button class="carousel-button next">&rarr;</button>
+                <div class="carousel-fade right"></div>
             </div>
+        </section>
        
     </main>
 

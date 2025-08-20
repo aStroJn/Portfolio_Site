@@ -20,4 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
             window.speechSynthesis.speak(utterance);
         });
     }
+
+    const track = document.querySelector('.carousel-track');
+    let speed = 0.8; // px per frame
+    let pos = 0;
+
+    function animate() {
+    pos -= speed;
+    if (Math.abs(pos) >= track.scrollWidth / 2) {
+        pos = 0; // reset seamlessly at half
+    }
+    track.style.transform = `translateX(${pos}px)`;
+    requestAnimationFrame(animate);
+    }
+
+    animate();
+
 });
+
